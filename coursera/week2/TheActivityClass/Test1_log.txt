@@ -1,0 +1,16 @@
+02-07 10:06:30.489: I/Lab-ActivityOne(934): onCreate executed
+02-07 10:06:30.489: I/Lab-ActivityOne(934): onStart executed
+02-07 10:06:30.489: I/Lab-ActivityOne(934): onResume executed
+02-07 10:06:37.261: I/Lab-ActivityOne(934): onPause executed
+02-07 10:06:37.261: I/Lab-ActivityOne(934): onStop executed
+02-07 10:06:37.261: I/Lab-ActivityOne(934): onDestroy executed
+02-07 10:06:37.869: I/Lab-ActivityOne(934): onCreate executed
+02-07 10:06:37.869: I/Lab-ActivityOne(934): onStart executed
+02-07 10:06:37.889: I/Lab-ActivityOne(934): onResume executed
+02-07 10:06:44.021: I/Lab-ActivityOne(934): onPause executed
+02-07 10:06:44.021: I/Lab-ActivityOne(934): onStop executed
+02-07 10:06:44.089: I/Lab-ActivityOne(934): onDestroy executed
+02-07 10:06:44.690: I/Lab-ActivityOne(934): onCreate executed
+02-07 10:06:44.690: I/Lab-ActivityOne(934): onStart executed
+02-07 10:06:44.712: I/Lab-ActivityOne(934): onResume executed
+02-07 10:06:50.450: I/Lab-ActivityOne(934): onPause executed
