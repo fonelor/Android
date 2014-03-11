@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="android.R.id"/>
+<fullyQualifiedTypeName name="course.labs.activitylab.ActivityTwo"/>
+<fullyQualifiedTypeName name="android.R"/>
+<fullyQualifiedTypeName name="course.labs.intentslab.ExplicitlyLoadedActivity"/>
+<fullyQualifiedTypeName name="android.os.Bundle"/>
+<fullyQualifiedTypeName name="course.labs.permissionslab.BookmarksActivity"/>
+<fullyQualifiedTypeName name="course.labs.permissionslab.GoToDangerousActivity"/>
+<fullyQualifiedTypeName name="android.view.ViewGroup"/>
+<fullyQualifiedTypeName name="android.widget.FrameLayout"/>
+<fullyQualifiedTypeName name="course.labs.fragmentslab.R.id"/>
+<fullyQualifiedTypeName name="android.app.FragmentTransaction"/>
+<fullyQualifiedTypeName name="course.labs.todomanager.R"/>
+<fullyQualifiedTypeName name="course.labs.todomanager.R.id"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="course.labs.todomanager.AddToDoActivity"/>
+</qualifiedTypeNameHistroy>

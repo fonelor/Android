@@ -1,0 +1,274 @@
+2014-02-20 12:34:39,099 [Worker-0] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updating index for repository: central|http://repo.maven.apache.org/maven2
+2014-02-20 12:34:39,190 [Worker-0] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:34:54,593 [Worker-0] ERROR o.e.m.c.i.i.nexus.NexusIndexManager - Unable to update index for central|http://repo.maven.apache.org/maven2
+java.io.IOException: connection timed out to http://repo.maven.apache.org/maven2/.index/nexus-maven-repository-index.properties
+	at org.eclipse.m2e.core.internal.index.nexus.AsyncFetcher$PipedErrorInputStream.checkError(AsyncFetcher.java:250) ~[org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.index.nexus.AsyncFetcher$PipedErrorInputStream.read(AsyncFetcher.java:258) ~[org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at java.io.PipedInputStream.read(Unknown Source) ~[na:1.7.0_40]
+	at java.io.InputStream.read(Unknown Source) ~[na:1.7.0_40]
+	at java.util.Properties$LineReader.readLine(Unknown Source) ~[na:1.7.0_40]
+	at java.util.Properties.load0(Unknown Source) ~[na:1.7.0_40]
+	at java.util.Properties.load(Unknown Source) ~[na:1.7.0_40]
+	at org.apache.maven.index.updater.DefaultIndexUpdater.downloadIndexProperties(DefaultIndexUpdater.java:457) ~[indexer-core-3.1.0.jar:3.1.0]
+	at org.apache.maven.index.updater.DefaultIndexUpdater.access$100(DefaultIndexUpdater.java:75) ~[indexer-core-3.1.0.jar:3.1.0]
+	at org.apache.maven.index.updater.DefaultIndexUpdater$IndexAdaptor.setProperties(DefaultIndexUpdater.java:607) ~[indexer-core-3.1.0.jar:3.1.0]
+	at org.apache.maven.index.updater.DefaultIndexUpdater.fetchAndUpdateIndex(DefaultIndexUpdater.java:788) ~[indexer-core-3.1.0.jar:3.1.0]
+	at org.apache.maven.index.updater.DefaultIndexUpdater.fetchAndUpdateIndex(DefaultIndexUpdater.java:135) ~[indexer-core-3.1.0.jar:3.1.0]
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.updateRemoteIndex(NexusIndexManager.java:1126) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.updateIndex(NexusIndexManager.java:1083) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager$1.run(NexusIndexManager.java:660) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.index.nexus.IndexUpdaterJob.run(IndexUpdaterJob.java:72) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53) [org.eclipse.core.jobs_3.5.300.v20120912-155018.jar:na]
+java.net.ConnectException: connection timed out to http://repo.maven.apache.org/maven2/.index/nexus-maven-repository-index.properties
+	at com.ning.http.client.providers.netty.NettyConnectListener.operationComplete(NettyConnectListener.java:95) ~[na:na]
+	at org.jboss.netty.channel.DefaultChannelFuture.notifyListener(DefaultChannelFuture.java:381) ~[na:na]
+	at org.jboss.netty.channel.DefaultChannelFuture.notifyListeners(DefaultChannelFuture.java:372) ~[na:na]
+	at org.jboss.netty.channel.DefaultChannelFuture.setFailure(DefaultChannelFuture.java:334) ~[na:na]
+	at org.jboss.netty.channel.socket.nio.NioClientSocketPipelineSink$Boss.processConnectTimeout(NioClientSocketPipelineSink.java:374) ~[na:na]
+	at org.jboss.netty.channel.socket.nio.NioClientSocketPipelineSink$Boss.run(NioClientSocketPipelineSink.java:283) ~[na:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108) ~[na:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:44) ~[na:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[na:1.7.0_40]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[na:1.7.0_40]
+	at java.lang.Thread.run(Unknown Source) ~[na:1.7.0_40]
+Caused by: java.net.ConnectException: connection timed out
+	at org.jboss.netty.channel.socket.nio.NioClientSocketPipelineSink$Boss.processConnectTimeout(NioClientSocketPipelineSink.java:371) ~[na:na]
+	at org.jboss.netty.channel.socket.nio.NioClientSocketPipelineSink$Boss.run(NioClientSocketPipelineSink.java:283) ~[na:na]
+	... 3 common frames omitted
+2014-02-20 12:35:15,738 [Worker-4] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2014-02-20 12:35:15,841 [Worker-4] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: WhereIsIt:WhereIsIt:0.0.1-SNAPSHOT @ D:\workspace\android\coursera\WhereIsIt\pom.xml.
+2014-02-20 12:35:15,925 [Worker-4] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed: 0 sec
+2014-02-20 12:36:18,387 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:18,965 [Worker-3] INFO  o.e.m.c.i.i.nexus.NexusIndexManager - Updating index for repository: nexus|http://rupebm10002srv:8081/nexus/content/groups/public
+2014-02-20 12:36:18,969 [Worker-3] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:19,031 [Worker-3] ERROR o.e.m.c.i.i.nexus.NexusIndexManager - Unable to update index for nexus|http://rupebm10002srv:8081/nexus/content/groups/public
+java.io.IOException: Server returned status code 404: Not Found
+	at org.eclipse.m2e.core.internal.index.nexus.AsyncFetcher$PipedErrorInputStream.checkError(AsyncFetcher.java:250) ~[org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.index.nexus.AsyncFetcher$PipedErrorInputStream.read(AsyncFetcher.java:258) ~[org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at java.io.PipedInputStream.read(Unknown Source) ~[na:1.7.0_40]
+	at java.io.InputStream.read(Unknown Source) ~[na:1.7.0_40]
+	at java.util.Properties$LineReader.readLine(Unknown Source) ~[na:1.7.0_40]
+	at java.util.Properties.load0(Unknown Source) ~[na:1.7.0_40]
+	at java.util.Properties.load(Unknown Source) ~[na:1.7.0_40]
+	at org.apache.maven.index.updater.DefaultIndexUpdater.downloadIndexProperties(DefaultIndexUpdater.java:457) ~[indexer-core-3.1.0.jar:3.1.0]
+	at org.apache.maven.index.updater.DefaultIndexUpdater.access$100(DefaultIndexUpdater.java:75) ~[indexer-core-3.1.0.jar:3.1.0]
+	at org.apache.maven.index.updater.DefaultIndexUpdater$IndexAdaptor.setProperties(DefaultIndexUpdater.java:607) ~[indexer-core-3.1.0.jar:3.1.0]
+	at org.apache.maven.index.updater.DefaultIndexUpdater.fetchAndUpdateIndex(DefaultIndexUpdater.java:788) ~[indexer-core-3.1.0.jar:3.1.0]
+	at org.apache.maven.index.updater.DefaultIndexUpdater.fetchAndUpdateIndex(DefaultIndexUpdater.java:135) ~[indexer-core-3.1.0.jar:3.1.0]
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.updateRemoteIndex(NexusIndexManager.java:1126) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager.updateIndex(NexusIndexManager.java:1083) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.index.nexus.NexusIndexManager$1.run(NexusIndexManager.java:660) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.m2e.core.internal.index.nexus.IndexUpdaterJob.run(IndexUpdaterJob.java:72) [org.eclipse.m2e.core_1.4.0.20130601-0317.jar:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:53) [org.eclipse.core.jobs_3.5.300.v20120912-155018.jar:na]
+java.io.IOException: Server returned status code 404: Not Found
+	at org.eclipse.m2e.core.internal.index.nexus.AsyncFetcher$MonitorListener.onStatus(AsyncFetcher.java:280) ~[na:na]
+	at com.ning.http.client.SimpleAsyncHttpClient$BodyConsumerAsyncHandler.fireStatus(SimpleAsyncHttpClient.java:828) ~[na:na]
+	at com.ning.http.client.SimpleAsyncHttpClient$BodyConsumerAsyncHandler.onStatusReceived(SimpleAsyncHttpClient.java:779) ~[na:na]
+	at com.ning.http.client.providers.netty.NettyAsyncHttpProvider.updateStatusAndInterrupt(NettyAsyncHttpProvider.java:1587) ~[na:na]
+	at com.ning.http.client.providers.netty.NettyAsyncHttpProvider.messageReceived(NettyAsyncHttpProvider.java:1242) ~[na:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:80) ~[na:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) ~[na:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:783) ~[na:na]
+	at org.jboss.netty.handler.stream.ChunkedWriteHandler.handleUpstream(ChunkedWriteHandler.java:149) ~[na:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) ~[na:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:783) ~[na:na]
+	at org.jboss.netty.handler.codec.http.HttpContentDecoder.messageReceived(HttpContentDecoder.java:104) ~[na:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:80) ~[na:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) ~[na:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline$DefaultChannelHandlerContext.sendUpstream(DefaultChannelPipeline.java:783) ~[na:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:302) ~[na:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.unfoldAndFireMessageReceived(ReplayingDecoder.java:522) ~[na:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.callDecode(ReplayingDecoder.java:506) ~[na:na]
+	at org.jboss.netty.handler.codec.replay.ReplayingDecoder.messageReceived(ReplayingDecoder.java:443) ~[na:na]
+	at org.jboss.netty.channel.SimpleChannelUpstreamHandler.handleUpstream(SimpleChannelUpstreamHandler.java:80) ~[na:na]
+	at org.jboss.netty.handler.codec.http.HttpClientCodec.handleUpstream(HttpClientCodec.java:77) ~[na:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:564) ~[na:na]
+	at org.jboss.netty.channel.DefaultChannelPipeline.sendUpstream(DefaultChannelPipeline.java:559) ~[na:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:274) ~[na:na]
+	at org.jboss.netty.channel.Channels.fireMessageReceived(Channels.java:261) ~[na:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.read(NioWorker.java:349) ~[na:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.processSelectedKeys(NioWorker.java:280) ~[na:na]
+	at org.jboss.netty.channel.socket.nio.NioWorker.run(NioWorker.java:200) ~[na:na]
+	at org.jboss.netty.util.ThreadRenamingRunnable.run(ThreadRenamingRunnable.java:108) ~[na:na]
+	at org.jboss.netty.util.internal.DeadLockProofWorker$1.run(DeadLockProofWorker.java:44) ~[na:na]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[na:1.7.0_40]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[na:1.7.0_40]
+	at java.lang.Thread.run(Unknown Source) ~[na:1.7.0_40]
+2014-02-20 12:36:19,260 [New I/O client worker #2-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-compiler-plugin/3.1/maven-compiler-plugin-3.1.jar
+2014-02-20 12:36:19,477 [New I/O client worker #2-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-compiler-plugin/3.1/maven-compiler-plugin-3.1.jar
+2014-02-20 12:36:19,606 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:20,304 [New I/O client worker #4-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-surefire-plugin/2.10/maven-surefire-plugin-2.10.jar
+2014-02-20 12:36:20,320 [New I/O client worker #4-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-surefire-plugin/2.10/maven-surefire-plugin-2.10.jar
+2014-02-20 12:36:20,724 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:21,630 [New I/O client worker #5-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-jar-plugin/2.3.2/maven-jar-plugin-2.3.2.jar
+2014-02-20 12:36:21,640 [New I/O client worker #5-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-jar-plugin/2.3.2/maven-jar-plugin-2.3.2.jar
+2014-02-20 12:36:21,893 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:22,337 [New I/O client worker #6-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-compiler-plugin/3.1/maven-compiler-plugin-3.1.pom
+2014-02-20 12:36:22,343 [New I/O client worker #6-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-compiler-plugin/3.1/maven-compiler-plugin-3.1.pom
+2014-02-20 12:36:22,564 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:23,046 [New I/O client worker #7-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-plugins/24/maven-plugins-24.pom
+2014-02-20 12:36:23,049 [New I/O client worker #7-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-plugins/24/maven-plugins-24.pom
+2014-02-20 12:36:23,269 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:23,767 [New I/O client worker #8-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/maven-parent/23/maven-parent-23.pom
+2014-02-20 12:36:23,780 [New I/O client worker #8-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/maven-parent/23/maven-parent-23.pom
+2014-02-20 12:36:24,078 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:24,329 [New I/O client worker #9-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/apache/13/apache-13.pom
+2014-02-20 12:36:24,333 [New I/O client worker #9-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/apache/13/apache-13.pom
+2014-02-20 12:36:25,120 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:25,470 [New I/O client worker #10-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/shared/maven-shared-utils/0.1/maven-shared-utils-0.1.pom
+2014-02-20 12:36:25,472 [New I/O client worker #10-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/shared/maven-shared-utils/0.1/maven-shared-utils-0.1.pom
+2014-02-20 12:36:25,586 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:26,054 [New I/O client worker #11-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/shared/maven-shared-components/18/maven-shared-components-18.pom
+2014-02-20 12:36:26,056 [New I/O client worker #11-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/shared/maven-shared-components/18/maven-shared-components-18.pom
+2014-02-20 12:36:26,211 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:26,790 [New I/O client worker #12-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.pom
+2014-02-20 12:36:26,792 [New I/O client worker #12-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.pom
+2014-02-20 12:36:27,000 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:27,592 [New I/O client worker #13-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/shared/maven-shared-incremental/1.1/maven-shared-incremental-1.1.pom
+2014-02-20 12:36:27,599 [New I/O client worker #13-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/shared/maven-shared-incremental/1.1/maven-shared-incremental-1.1.pom
+2014-02-20 12:36:27,811 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:28,309 [New I/O client worker #14-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/shared/maven-shared-components/19/maven-shared-components-19.pom
+2014-02-20 12:36:28,311 [New I/O client worker #14-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/shared/maven-shared-components/19/maven-shared-components-19.pom
+2014-02-20 12:36:28,754 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:29,208 [New I/O client worker #15-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.pom
+2014-02-20 12:36:29,209 [New I/O client worker #15-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.pom
+2014-02-20 12:36:29,421 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:29,809 [New I/O client worker #16-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-containers/1.5.5/plexus-containers-1.5.5.pom
+2014-02-20 12:36:29,810 [New I/O client worker #16-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-containers/1.5.5/plexus-containers-1.5.5.pom
+2014-02-20 12:36:30,133 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:30,602 [New I/O client worker #17-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-api/2.2/plexus-compiler-api-2.2.pom
+2014-02-20 12:36:30,603 [New I/O client worker #17-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-api/2.2/plexus-compiler-api-2.2.pom
+2014-02-20 12:36:30,732 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:31,137 [New I/O client worker #18-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler/2.2/plexus-compiler-2.2.pom
+2014-02-20 12:36:31,138 [New I/O client worker #18-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler/2.2/plexus-compiler-2.2.pom
+2014-02-20 12:36:31,334 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:31,727 [New I/O client worker #19-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-components/1.3.1/plexus-components-1.3.1.pom
+2014-02-20 12:36:31,728 [New I/O client worker #19-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-components/1.3.1/plexus-components-1.3.1.pom
+2014-02-20 12:36:32,041 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:32,434 [New I/O client worker #20-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus/3.3.1/plexus-3.3.1.pom
+2014-02-20 12:36:32,441 [New I/O client worker #20-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus/3.3.1/plexus-3.3.1.pom
+2014-02-20 12:36:32,762 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:32,933 [New I/O client worker #21-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/3.0.8/plexus-utils-3.0.8.pom
+2014-02-20 12:36:32,933 [New I/O client worker #21-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/3.0.8/plexus-utils-3.0.8.pom
+2014-02-20 12:36:33,049 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:33,434 [New I/O client worker #22-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus/3.2/plexus-3.2.pom
+2014-02-20 12:36:33,440 [New I/O client worker #22-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus/3.2/plexus-3.2.pom
+2014-02-20 12:36:33,665 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:34,043 [New I/O client worker #23-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-manager/2.2/plexus-compiler-manager-2.2.pom
+2014-02-20 12:36:34,044 [New I/O client worker #23-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-manager/2.2/plexus-compiler-manager-2.2.pom
+2014-02-20 12:36:34,361 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:34,647 [New I/O client worker #24-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-javac/2.2/plexus-compiler-javac-2.2.pom
+2014-02-20 12:36:34,648 [New I/O client worker #24-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-javac/2.2/plexus-compiler-javac-2.2.pom
+2014-02-20 12:36:34,865 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:35,265 [New I/O client worker #25-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compilers/2.2/plexus-compilers-2.2.pom
+2014-02-20 12:36:35,266 [New I/O client worker #25-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compilers/2.2/plexus-compilers-2.2.pom
+2014-02-20 12:36:35,493 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:35,868 [New I/O client worker #26-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-container-default/1.5.5/plexus-container-default-1.5.5.pom
+2014-02-20 12:36:35,869 [New I/O client worker #26-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-container-default/1.5.5/plexus-container-default-1.5.5.pom
+2014-02-20 12:36:36,088 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:36,689 [New I/O client worker #27-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-classworlds/2.2.2/plexus-classworlds-2.2.2.pom
+2014-02-20 12:36:36,690 [New I/O client worker #27-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-classworlds/2.2.2/plexus-classworlds-2.2.2.pom
+2014-02-20 12:36:36,894 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:37,422 [New I/O client worker #28-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/xbean/xbean-reflect/3.4/xbean-reflect-3.4.pom
+2014-02-20 12:36:37,423 [New I/O client worker #28-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/xbean/xbean-reflect/3.4/xbean-reflect-3.4.pom
+2014-02-20 12:36:37,594 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:38,092 [New I/O client worker #29-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/xbean/xbean/3.4/xbean-3.4.pom
+2014-02-20 12:36:38,097 [New I/O client worker #29-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/xbean/xbean/3.4/xbean-3.4.pom
+2014-02-20 12:36:38,414 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:38,847 [New I/O client worker #30-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/com/google/collections/google-collections/1.0/google-collections-1.0.pom
+2014-02-20 12:36:38,847 [New I/O client worker #30-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/com/google/collections/google-collections/1.0/google-collections-1.0.pom
+2014-02-20 12:36:39,005 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:39,294 [New I/O client worker #31-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/com/google/google/1/google-1.pom
+2014-02-20 12:36:39,295 [New I/O client worker #31-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/com/google/google/1/google-1.pom
+2014-02-20 12:36:39,414 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:40,183 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:41,447 [New I/O client worker #33-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/1.5.1/plexus-utils-1.5.1.jar
+2014-02-20 12:36:41,724 [New I/O client worker #33-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-utils/1.5.1/plexus-utils-1.5.1.jar
+2014-02-20 12:36:43,842 [New I/O client worker #33-5] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar
+2014-02-20 12:36:43,843 [New I/O client worker #33-5] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar
+2014-02-20 12:36:44,870 [New I/O client worker #33-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.jar
+2014-02-20 12:36:44,872 [New I/O client worker #33-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/xbean/xbean-reflect/3.4/xbean-reflect-3.4.jar
+2014-02-20 12:36:44,874 [New I/O client worker #33-8] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-javac/2.2/plexus-compiler-javac-2.2.jar
+2014-02-20 12:36:44,876 [New I/O client worker #33-6] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-api/2.2/plexus-compiler-api-2.2.jar
+2014-02-20 12:36:44,879 [New I/O client worker #33-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/shared/maven-shared-incremental/1.1/maven-shared-incremental-1.1.jar
+2014-02-20 12:36:44,879 [New I/O client worker #33-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-manager/2.2/plexus-compiler-manager-2.2.jar
+2014-02-20 12:36:44,880 [New I/O client worker #33-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/log4j/log4j/1.2.12/log4j-1.2.12.jar
+2014-02-20 12:36:44,881 [New I/O client worker #33-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/junit/junit/3.8.2/junit-3.8.2.jar
+2014-02-20 12:36:44,883 [New I/O client worker #33-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/shared/maven-shared-utils/0.1/maven-shared-utils-0.1.jar
+2014-02-20 12:36:44,884 [New I/O client worker #33-7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-manager/2.2/plexus-compiler-manager-2.2.jar
+2014-02-20 12:36:44,907 [New I/O client worker #33-8] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-javac/2.2/plexus-compiler-javac-2.2.jar
+2014-02-20 12:36:44,910 [New I/O client worker #33-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/shared/maven-shared-incremental/1.1/maven-shared-incremental-1.1.jar
+2014-02-20 12:36:44,928 [New I/O client worker #33-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/com/google/code/findbugs/jsr305/2.0.1/jsr305-2.0.1.jar
+2014-02-20 12:36:44,934 [New I/O client worker #33-6] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-compiler-api/2.2/plexus-compiler-api-2.2.jar
+2014-02-20 12:36:45,101 [New I/O client worker #33-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/shared/maven-shared-utils/0.1/maven-shared-utils-0.1.jar
+2014-02-20 12:36:45,214 [New I/O client worker #33-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/xbean/xbean-reflect/3.4/xbean-reflect-3.4.jar
+2014-02-20 12:36:45,243 [New I/O client worker #33-4] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/junit/junit/3.8.2/junit-3.8.2.jar
+2014-02-20 12:36:45,326 [New I/O client worker #33-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/log4j/log4j/1.2.12/log4j-1.2.12.jar
+2014-02-20 12:36:46,848 [New I/O client worker #33-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/com/google/collections/google-collections/1.0/google-collections-1.0.jar
+2014-02-20 12:36:47,305 [New I/O client worker #33-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/com/google/collections/google-collections/1.0/google-collections-1.0.jar
+2014-02-20 12:36:48,155 [Worker-1] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: WhereIsIt:WhereIsIt:0.0.1-SNAPSHOT @ D:\workspace\android\coursera\WhereIsIt\pom.xml.
+2014-02-20 12:36:48,162 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:48,542 [New I/O client worker #34-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/osmdroid/osmdroid-android/4.0/osmdroid-android-4.0.pom
+2014-02-20 12:36:48,542 [New I/O client worker #34-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/osmdroid/osmdroid-android/4.0/osmdroid-android-4.0.pom
+2014-02-20 12:36:48,692 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:49,143 [New I/O client worker #35-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/osmdroid/osmdroid-parent/4.0/osmdroid-parent-4.0.pom
+2014-02-20 12:36:49,146 [New I/O client worker #35-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/osmdroid/osmdroid-parent/4.0/osmdroid-parent-4.0.pom
+2014-02-20 12:36:49,314 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:50,355 [New I/O client worker #36-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/osmdroid/osmdroid-android/4.0/osmdroid-android-4.0.jar
+2014-02-20 12:36:50,685 [New I/O client worker #36-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/osmdroid/osmdroid-android/4.0/osmdroid-android-4.0.jar
+2014-02-20 12:36:51,006 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:51,214 [New I/O client worker #37-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-surefire-plugin/2.10/maven-surefire-plugin-2.10.pom
+2014-02-20 12:36:51,216 [New I/O client worker #37-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-surefire-plugin/2.10/maven-surefire-plugin-2.10.pom
+2014-02-20 12:36:51,415 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:51,717 [New I/O client worker #38-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/surefire/surefire/2.10/surefire-2.10.pom
+2014-02-20 12:36:51,720 [New I/O client worker #38-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/surefire/surefire/2.10/surefire-2.10.pom
+2014-02-20 12:36:51,922 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:52,292 [New I/O client worker #39-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/maven-parent/20/maven-parent-20.pom
+2014-02-20 12:36:52,301 [New I/O client worker #39-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/maven-parent/20/maven-parent-20.pom
+2014-02-20 12:36:52,535 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:52,712 [New I/O client worker #40-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-jar-plugin/2.3.2/maven-jar-plugin-2.3.2.pom
+2014-02-20 12:36:52,713 [New I/O client worker #40-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-jar-plugin/2.3.2/maven-jar-plugin-2.3.2.pom
+2014-02-20 12:36:52,933 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:53,118 [New I/O client worker #41-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-plugins/21/maven-plugins-21.pom
+2014-02-20 12:36:53,122 [New I/O client worker #41-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/plugins/maven-plugins/21/maven-plugins-21.pom
+2014-02-20 12:36:53,477 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:53,738 [New I/O client worker #42-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/maven-archiver/2.4.2/maven-archiver-2.4.2.pom
+2014-02-20 12:36:53,739 [New I/O client worker #42-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/maven-archiver/2.4.2/maven-archiver-2.4.2.pom
+2014-02-20 12:36:53,966 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:54,233 [New I/O client worker #43-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-archiver/2.0.1/plexus-archiver-2.0.1.pom
+2014-02-20 12:36:54,235 [New I/O client worker #43-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-archiver/2.0.1/plexus-archiver-2.0.1.pom
+2014-02-20 12:36:54,509 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:54,748 [New I/O client worker #44-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-io/2.0.1/plexus-io-2.0.1.pom
+2014-02-20 12:36:54,749 [New I/O client worker #44-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-io/2.0.1/plexus-io-2.0.1.pom
+2014-02-20 12:36:54,951 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:55,323 [New I/O client worker #45-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-components/1.1.19/plexus-components-1.1.19.pom
+2014-02-20 12:36:55,324 [New I/O client worker #45-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-components/1.1.19/plexus-components-1.1.19.pom
+2014-02-20 12:36:55,644 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:55,902 [New I/O client worker #46-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus/3.0.1/plexus-3.0.1.pom
+2014-02-20 12:36:55,909 [New I/O client worker #46-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus/3.0.1/plexus-3.0.1.pom
+2014-02-20 12:36:56,094 [Worker-1] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2014-02-20 12:36:56,703 [New I/O client worker #47-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/maven-archiver/2.4.2/maven-archiver-2.4.2.jar
+2014-02-20 12:36:56,714 [New I/O client worker #47-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/apache/maven/maven-archiver/2.4.2/maven-archiver-2.4.2.jar
+2014-02-20 12:36:56,758 [New I/O client worker #47-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-archiver/2.0.1/plexus-archiver-2.0.1.jar
+2014-02-20 12:36:56,960 [New I/O client worker #47-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-io/2.0.1/plexus-io-2.0.1.jar
+2014-02-20 12:36:57,097 [New I/O client worker #47-2] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-archiver/2.0.1/plexus-archiver-2.0.1.jar
+2014-02-20 12:36:57,174 [New I/O client worker #47-3] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://rupebm10002srv:8081/nexus/content/groups/public/org/codehaus/plexus/plexus-io/2.0.1/plexus-io-2.0.1.jar
+2014-02-20 12:36:58,433 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-02-20 12:36:58,434 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\workspace\android\coursera\WhereIsIt\src\main\resources
+2014-02-20 12:36:58,437 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-02-20 12:36:58,438 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\workspace\android\coursera\WhereIsIt\src\test\resources
+2014-02-20 12:37:17,475 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-02-20 12:37:17,477 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\workspace\android\coursera\WhereIsIt\src\main\resources
+2014-02-20 12:37:17,480 [Worker-9] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-02-20 12:37:17,491 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\workspace\android\coursera\WhereIsIt\src\test\resources
+2014-02-20 12:38:51,969 [main] INFO  o.e.m2e.actions.ExecutePomAction - Creating new launch configuration
+2014-02-20 12:38:57,622 [Worker-1] INFO  o.e.m.i.launch.MavenLaunchDelegate - D:\workspace\android\coursera\WhereIsIt
+2014-02-20 12:38:57,624 [Worker-1] INFO  o.e.m.i.launch.MavenLaunchDelegate -  mvn  -B -s C:\Users\z002t9wj\workspace\ERWIN\.m2\settings.xml 
+2014-02-20 12:41:00,413 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-02-20 12:41:00,413 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\workspace\android\coursera\WhereIsIt\src\main\resources
+2014-02-20 12:41:00,416 [Worker-5] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-02-20 12:41:00,417 [Worker-5] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\workspace\android\coursera\WhereIsIt\src\test\resources
+2014-02-20 12:49:30,955 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-02-20 12:49:30,963 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\workspace\android\coursera\WhereIsIt\src\main\resources
+2014-02-20 12:49:30,965 [Worker-7] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (Cp1251 actually) to copy filtered resources, i.e. build is platform dependent!
+2014-02-20 12:49:30,966 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\workspace\android\coursera\WhereIsIt\src\test\resources
