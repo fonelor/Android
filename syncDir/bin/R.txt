@@ -326,7 +326,7 @@ int drawable ic_plusone_standard_off_client 0x7f020074
 int drawable ic_plusone_tall_off_client 0x7f020075
 int drawable powered_by_google_dark 0x7f020076
 int drawable powered_by_google_light 0x7f020077
-int id Button01 0x7f08004e
+int id LinearLayout1 0x7f08004e
 int id action_bar 0x7f08002e
 int id action_bar_activity_content 0x7f080027
 int id action_bar_container 0x7f08002d
@@ -338,12 +338,13 @@ int id action_context_bar 0x7f08002f
 int id action_menu_divider 0x7f080028
 int id action_menu_presenter 0x7f080029
 int id action_mode_close_button 0x7f080036
-int id action_settings 0x7f080051
+int id action_settings 0x7f080052
 int id activity_chooser_view_content 0x7f080037
 int id always 0x7f08001e
 int id beginning 0x7f080023
 int id book_now 0x7f080010
-int id buttonLocalPath 0x7f08004f
+int id buttonDrivePath 0x7f080051
+int id buttonLocalPath 0x7f080050
 int id buyButton 0x7f08000a
 int id buy_now 0x7f08000f
 int id buy_with_google 0x7f08000e
@@ -399,7 +400,7 @@ int id showTitle 0x7f080019
 int id split_action_bar 0x7f080030
 int id strict_sandbox 0x7f080009
 int id submit_area 0x7f08004b
-int id switchSync 0x7f080050
+int id switchSync 0x7f08004f
 int id tabMode 0x7f080015
 int id terrain 0x7f080003
 int id title 0x7f08003d
