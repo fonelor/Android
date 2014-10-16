@@ -2,15 +2,15 @@ package com.rolsoft.syncdir;
 
 import net.bgreco.DirectoryPicker;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.IntentSender.SendIntentException;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.view.View;
-import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.Switch;
@@ -39,11 +39,6 @@ OnConnectionFailedListener {
 	private static final int REQUEST_CODE_DRIVE_OPENER = 1;
 
 	/**
-	 * Code for local folder opener activity
-	 */
-	private static final int REQUEST_CODE_LOCAL_FOLDER_SELECTOR = 2;
-
-	/**
 	 * Code for Google API resolution in connection
 	 */
 	private static final int REQUEST_CODE_RESOLUTION = 3;
@@ -56,17 +51,17 @@ OnConnectionFailedListener {
 	/**
 	 * Is synchronization turned on 
 	 */
-	private boolean bSyncOn = false;
+	private boolean mSyncOn = false;
 
 	/**
 	 * Uri for local folder 
 	 */
-	private Uri localFolder = null;
+	private Uri mlocalFolder = null;
 
 	/**
 	 * DriveId for folder on Google Drive 
 	 */
-	private DriveId driveFolderId = null;
+	private String mdriveFolderEncodedId = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -110,7 +105,11 @@ OnConnectionFailedListener {
 
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				bSyncOn = isChecked;
+				mSyncOn = isChecked;
+
+				buttonLocalPath.setEnabled(!mSyncOn);
+				buttonDrivePath.setEnabled(!mSyncOn);
+
 			}
 		});
 	}
@@ -122,21 +121,18 @@ OnConnectionFailedListener {
 		startActivityForResult(folderPicker, DirectoryPicker.PICK_DIRECTORY);		
 	}
 
-	//	@Override
-	//	public boolean onCreateOptionsMenu(Menu menu) {
-	//		// Inflate the menu; this adds items to the action bar if it is present.
-	//		getMenuInflater().inflate(R.menu.main, menu);
-	//		return true;
-	//	}
-
 	@Override
 	protected void onResume() {
 		super.onResume();
+
+		readPreferences();
 
 		createGoogleApiClient();
 		if (mGoogleApiClient != null && !mGoogleApiClient.isConnected()) {
 			mGoogleApiClient.connect();
 		}
+
+		checkSyncState();
 	}
 
 	private void createGoogleApiClient() {
@@ -153,23 +149,43 @@ OnConnectionFailedListener {
 
 	@Override
 	protected void onPause() {
+
+		savePreferences();
+
 		if (mGoogleApiClient != null) {
 			mGoogleApiClient.disconnect();
 		}
 		super.onPause();
 	}
 
-	//	@Override
-	//	public boolean onOptionsItemSelected(MenuItem item) {
-	//		// Handle action bar item clicks here. The action bar will
-	//		// automatically handle clicks on the Home/Up button, so long
-	//		// as you specify a parent activity in AndroidManifest.xml.
-	//		int id = item.getItemId();
-	//		if (id == R.id.action_settings) {
-	//			return true;
-	//		}
-	//		return super.onOptionsItemSelected(item);
-	//	}
+	private void savePreferences() {
+		SharedPreferences sharedPref = getApplication().getSharedPreferences(
+				getString(R.string.PREFERENCE_FILE_KEY), 
+				Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = sharedPref.edit();
+		editor.putString(getString(R.string.LOCAL_PATH_KEY), mlocalFolder.toString());
+		editor.putString(getString(R.string.DRIVE_PATH_KEY), mdriveFolderEncodedId);
+
+		editor.commit();
+	}
+
+
+	private void readPreferences() {
+		SharedPreferences sharedPref = getApplication().getSharedPreferences(
+				getString(R.string.PREFERENCE_FILE_KEY), 
+				Context.MODE_PRIVATE);
+		mlocalFolder = Uri.parse(sharedPref.getString(getString(R.string.LOCAL_PATH_KEY), Uri.EMPTY.toString()));
+		mdriveFolderEncodedId = sharedPref.getString(getString(R.string.DRIVE_PATH_KEY), "");
+
+		updateButtonTitle(R.id.buttonLocalPath, getString(R.string.localPathTitle) 
+				+ mlocalFolder.toString());
+
+	}
+
+	private void updateButtonTitle(int id, String text) {
+		final Button buttonLocalPath = (Button) findViewById(id);
+		buttonLocalPath.setText(text);
+	}
 
 	@Override
 	protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
@@ -179,15 +195,20 @@ OnConnectionFailedListener {
 			if (resultCode == RESULT_OK) {
 				Bundle extras = data.getExtras();
 				String path = (String) extras.get(DirectoryPicker.CHOSEN_DIRECTORY);
-				localFolder = Uri.parse(path);
-				showMessage("Local folder is " + localFolder.toString());
+				mlocalFolder = Uri.parse(path);
+
+				updateButtonTitle(R.id.buttonLocalPath, getString(R.string.localPathTitle) 
+						+ mlocalFolder.toString());
+
+				showMessage("Local folder is " + mlocalFolder.toString());
 			}
+			break;
 
 		case REQUEST_CODE_DRIVE_OPENER:
 			// Set {@code driveFolderId} to selected folder on the drive
 			if (resultCode == RESULT_OK) {
-				driveFolderId = (DriveId) data.getParcelableExtra(
-						OpenFileActivityBuilder.EXTRA_RESPONSE_DRIVE_ID);
+				mdriveFolderEncodedId = ((DriveId) data.getParcelableExtra(
+						OpenFileActivityBuilder.EXTRA_RESPONSE_DRIVE_ID)).encodeToString();
 			}
 			break;
 		case REQUEST_CODE_RESOLUTION:
@@ -200,6 +221,17 @@ OnConnectionFailedListener {
 			finish();	
 		}
 
+		savePreferences();
+
+		checkSyncState();
+	}
+
+	private void checkSyncState() {
+		if (!mlocalFolder.equals(Uri.EMPTY) && !mdriveFolderEncodedId.isEmpty())
+		{
+			final Switch switchSync = (Switch) findViewById(R.id.switchSync);
+			switchSync.setEnabled(true);
+		}
 	}
 
 	/**
@@ -219,17 +251,19 @@ OnConnectionFailedListener {
 		final Button buttonLocalPath = (Button) findViewById(R.id.buttonLocalPath);
 		buttonLocalPath.setEnabled(true);
 
-		final Switch switchSync = (Switch) findViewById(R.id.switchSync);
-		switchSync.setEnabled(true);
+		if (!mdriveFolderEncodedId.isEmpty()) {
 
-		if (driveFolderId != null) {
-
-			DriveFolder driveFolder = Drive.DriveApi.getFolder(mGoogleApiClient, driveFolderId);
+			DriveFolder driveFolder = Drive.DriveApi.getFolder(mGoogleApiClient, 
+					DriveId.decodeFromString(mdriveFolderEncodedId));
 			driveFolder.getMetadata(mGoogleApiClient).setResultCallback(
 					new ResultCallback<DriveResource.MetadataResult>() {
 
 						@Override
 						public void onResult(DriveResource.MetadataResult metaData) {
+
+							updateButtonTitle(R.id.buttonDrivePath, getString(R.string.drivePathTitle) 
+									+ metaData.getMetadata().getTitle());
+
 							showMessage("Selected folder title is: " + metaData.getMetadata().getTitle());
 
 						}

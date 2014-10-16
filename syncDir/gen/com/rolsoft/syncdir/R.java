@@ -1608,6 +1608,9 @@ containing a value of this type.
         public static final int main=0x7f0c0000;
     }
     public static final class string {
+        public static final int DRIVE_PATH_KEY=0x7f050038;
+        public static final int LOCAL_PATH_KEY=0x7f050037;
+        public static final int PREFERENCE_FILE_KEY=0x7f050036;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abc_action_bar_home_description=0x7f050025;
@@ -1753,9 +1756,9 @@ containing a value of this type.
         public static final int create_calendar_message=0x7f050006;
         public static final int create_calendar_title=0x7f050005;
         public static final int decline=0x7f050004;
-        public static final int drivePath=0x7f050035;
+        public static final int drivePathTitle=0x7f050035;
         public static final int hello_world=0x7f050031;
-        public static final int localPath=0x7f050033;
+        public static final int localPathTitle=0x7f050033;
         public static final int store_picture_message=0x7f050002;
         public static final int store_picture_title=0x7f050001;
         public static final int sync=0x7f050034;

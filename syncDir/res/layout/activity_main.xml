@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="42dp"
         android:enabled="false"
-        android:text="@string/localPath" />
+        android:text="@string/localPathTitle" />
 
     <Button
         android:id="@+id/buttonDrivePath"
@@ -32,6 +32,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="59dp"
         android:enabled="false"
-        android:text="@string/drivePath" />
+        android:text="@string/drivePathTitle" />
 
 </LinearLayout>
