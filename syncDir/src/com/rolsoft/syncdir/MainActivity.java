@@ -1,5 +1,6 @@
 package com.rolsoft.syncdir;
 
+import net.bgreco.DirectoryPicker;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.IntentSender;
@@ -116,22 +117,9 @@ OnConnectionFailedListener {
 
 
 	private void showFileChooser() {
-		Intent intent = new Intent(Intent.); 
-//		intent.setType("*/*"); 
-		Uri startUri = Uri.parse(Environment.getExternalStorageDirectory().getPath());
-		String fileExtension =  MimeTypeMap.getFileExtensionFromUrl(startUri.toString());
-		String mimeType = MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtension);
-		intent.setDataAndType(startUri, "*/*");
-//		intent.addCategory(Intent.CATEGORY_OPENABLE);
-
-		try {
-			startActivityForResult(
-					Intent.createChooser(intent, "Select a Folder"),
-					REQUEST_CODE_LOCAL_FOLDER_SELECTOR);
-		} catch (android.content.ActivityNotFoundException ex) {
-			// Potentially direct the user to the Market with a Dialog
-			showMessage("Please install a File Manager");
-		}
+		final Intent folderPicker = new Intent(this, DirectoryPicker.class);
+		folderPicker.putExtra(DirectoryPicker.ONLY_DIRS, true);
+		startActivityForResult(folderPicker, DirectoryPicker.PICK_DIRECTORY);		
 	}
 
 	//	@Override
@@ -187,9 +175,11 @@ OnConnectionFailedListener {
 	protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
 		switch (requestCode) {
 
-		case REQUEST_CODE_LOCAL_FOLDER_SELECTOR:
+		case DirectoryPicker.PICK_DIRECTORY:
 			if (resultCode == RESULT_OK) {
-				localFolder = data.getData();
+				Bundle extras = data.getExtras();
+				String path = (String) extras.get(DirectoryPicker.CHOSEN_DIRECTORY);
+				localFolder = Uri.parse(path);
 				showMessage("Local folder is " + localFolder.toString());
 			}
 

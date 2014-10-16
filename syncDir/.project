@@ -3,6 +3,7 @@
 	<name>syncDir</name>
 	<comment></comment>
 	<projects>
+		<project>Android-DirectoryChooser</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
