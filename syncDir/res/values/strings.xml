@@ -10,5 +10,6 @@
     <string name="PREFERENCE_FILE_KEY">preferencesSyncDir</string>
     <string name="LOCAL_PATH_KEY">localPath</string>
     <string name="DRIVE_PATH_KEY">drivePath</string>
+    <string name="SYNC_STATE_KEY">syncState</string>
 
 </resources>

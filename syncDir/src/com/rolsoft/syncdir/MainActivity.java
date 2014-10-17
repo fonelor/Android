@@ -63,12 +63,18 @@ OnConnectionFailedListener {
 	 */
 	private String mdriveFolderEncodedId = null;
 
+	private Button buttonLocalPath = null;
+
+	private Button buttonDrivePath = null;
+
+	private Switch switchSync = null;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
-		final Button buttonLocalPath = (Button) findViewById(R.id.buttonLocalPath);
+		buttonLocalPath = (Button) findViewById(R.id.buttonLocalPath);
 		buttonLocalPath.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -78,7 +84,7 @@ OnConnectionFailedListener {
 			}
 		});
 
-		final Button buttonDrivePath = (Button) findViewById(R.id.buttonDrivePath);
+		buttonDrivePath = (Button) findViewById(R.id.buttonDrivePath);
 		buttonDrivePath.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -100,15 +106,14 @@ OnConnectionFailedListener {
 			}
 		});
 
-		final Switch switchSync = (Switch) findViewById(R.id.switchSync);
+		switchSync = (Switch) findViewById(R.id.switchSync);
 		switchSync.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 				mSyncOn = isChecked;
 
-				buttonLocalPath.setEnabled(!mSyncOn);
-				buttonDrivePath.setEnabled(!mSyncOn);
+				checkSyncAndControllsState();
 
 			}
 		});
@@ -132,7 +137,7 @@ OnConnectionFailedListener {
 			mGoogleApiClient.connect();
 		}
 
-		checkSyncState();
+		checkSyncAndControllsState();
 	}
 
 	private void createGoogleApiClient() {
@@ -165,6 +170,7 @@ OnConnectionFailedListener {
 		SharedPreferences.Editor editor = sharedPref.edit();
 		editor.putString(getString(R.string.LOCAL_PATH_KEY), mlocalFolder.toString());
 		editor.putString(getString(R.string.DRIVE_PATH_KEY), mdriveFolderEncodedId);
+		editor.putBoolean(getString(R.string.SYNC_STATE_KEY), mSyncOn);
 
 		editor.commit();
 	}
@@ -176,6 +182,7 @@ OnConnectionFailedListener {
 				Context.MODE_PRIVATE);
 		mlocalFolder = Uri.parse(sharedPref.getString(getString(R.string.LOCAL_PATH_KEY), Uri.EMPTY.toString()));
 		mdriveFolderEncodedId = sharedPref.getString(getString(R.string.DRIVE_PATH_KEY), "");
+		mSyncOn = sharedPref.getBoolean(getString(R.string.SYNC_STATE_KEY), false);
 
 		updateButtonTitle(R.id.buttonLocalPath, getString(R.string.localPathTitle) 
 				+ mlocalFolder.toString());
@@ -196,9 +203,6 @@ OnConnectionFailedListener {
 				Bundle extras = data.getExtras();
 				String path = (String) extras.get(DirectoryPicker.CHOSEN_DIRECTORY);
 				mlocalFolder = Uri.parse(path);
-
-				updateButtonTitle(R.id.buttonLocalPath, getString(R.string.localPathTitle) 
-						+ mlocalFolder.toString());
 
 				showMessage("Local folder is " + mlocalFolder.toString());
 			}
@@ -223,14 +227,50 @@ OnConnectionFailedListener {
 
 		savePreferences();
 
-		checkSyncState();
+		checkSyncAndControllsState();
 	}
 
-	private void checkSyncState() {
-		if (!mlocalFolder.equals(Uri.EMPTY) && !mdriveFolderEncodedId.isEmpty())
-		{
-			final Switch switchSync = (Switch) findViewById(R.id.switchSync);
-			switchSync.setEnabled(true);
+	private void checkSyncAndControllsState() {
+		if (mGoogleApiClient.isConnected()) {
+			// connected, check if paths set
+			if (!mlocalFolder.equals(Uri.EMPTY)) {
+
+				// set local button name
+				updateButtonTitle(R.id.buttonLocalPath, getString(R.string.localPathTitle) 
+						+ mlocalFolder.toString());
+
+				if (!mdriveFolderEncodedId.isEmpty())
+				{
+					// driveButton title set in onActivityResult
+					// paths set
+					switchSync.setEnabled(true);
+					switchSync.setChecked(mSyncOn);
+
+					if (mSyncOn) {
+						// disable buttons
+						disableControlls(false);
+						return;
+					}
+				}
+			}
+		} else {
+			// not connected, disable all
+			disableControlls(true);
+			return;
+		}
+
+		// enable buttons
+		buttonLocalPath.setEnabled(true);
+		buttonDrivePath.setEnabled(true);
+
+	}
+
+	private void disableControlls(boolean withSwitch) {
+		buttonDrivePath.setEnabled(false);
+		buttonLocalPath.setEnabled(false);
+
+		if (withSwitch) {
+			switchSync.setEnabled(false);
 		}
 	}
 
@@ -244,12 +284,6 @@ OnConnectionFailedListener {
 	@Override
 	public void onConnected(Bundle arg0) {
 		Log.i(TAG, "Api client connected.");
-
-		final Button buttonDrivePath = (Button) findViewById(R.id.buttonDrivePath);
-		buttonDrivePath.setEnabled(true);
-
-		final Button buttonLocalPath = (Button) findViewById(R.id.buttonLocalPath);
-		buttonLocalPath.setEnabled(true);
 
 		if (!mdriveFolderEncodedId.isEmpty()) {
 
@@ -271,34 +305,19 @@ OnConnectionFailedListener {
 					});
 		}
 
+		checkSyncAndControllsState();
 
 	}
 
 	@Override
 	public void onConnectionSuspended(int arg0) {
-		final Button buttonDrivePath = (Button) findViewById(R.id.buttonDrivePath);
-		buttonDrivePath.setEnabled(false);
-
-		final Button buttonLocalPath = (Button) findViewById(R.id.buttonLocalPath);
-		buttonLocalPath.setEnabled(false);
-
-		final Switch switchSync = (Switch) findViewById(R.id.switchSync);
-		switchSync.setEnabled(false);
-
+		disableControlls(true);
 	}
 
 	@Override
 	public void onConnectionFailed(ConnectionResult result) {
 		// Called if connection failed
-
-		final Button buttonDrivePath = (Button) findViewById(R.id.buttonDrivePath);
-		buttonDrivePath.setEnabled(false);
-
-		final Button buttonLocalPath = (Button) findViewById(R.id.buttonLocalPath);
-		buttonLocalPath.setEnabled(false);
-
-		final Switch switchSync = (Switch) findViewById(R.id.switchSync);
-		switchSync.setEnabled(false);
+		disableControlls(true);
 
 		Log.i(TAG, "GoogleApiClient connection failed: " + result.toString());
 		if (!result.hasResolution()) {

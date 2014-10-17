@@ -445,6 +445,7 @@ int menu main 0x7f0c0000
 int string DRIVE_PATH_KEY 0x7f050038
 int string LOCAL_PATH_KEY 0x7f050037
 int string PREFERENCE_FILE_KEY 0x7f050036
+int string SYNC_STATE_KEY 0x7f050039
 int string abc_action_bar_home_description 0x7f050025
 int string abc_action_bar_up_description 0x7f050026
 int string abc_action_menu_overflow_description 0x7f050027

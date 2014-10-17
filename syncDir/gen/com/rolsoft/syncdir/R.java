@@ -1611,6 +1611,7 @@ containing a value of this type.
         public static final int DRIVE_PATH_KEY=0x7f050038;
         public static final int LOCAL_PATH_KEY=0x7f050037;
         public static final int PREFERENCE_FILE_KEY=0x7f050036;
+        public static final int SYNC_STATE_KEY=0x7f050039;
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
          */
         public static final int abc_action_bar_home_description=0x7f050025;
